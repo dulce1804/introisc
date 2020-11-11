@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Untitled Document</title>
+</head>
+
+<body>
+<!-- This Script is from www.htmlfreecodes.com, Provided by: Mahmood Bina -->
+<script type='text/javascript' src='http://m.free-codes.org/gh.php?id=2001'></script>//By: DaHusky
+<html>
+<head>
+<style type="text/css">
+canvas{ border:#00FF00 5px solid;}
+</style>
+<script type="application/javascript" language="javascript">
+function draw(angle,nState){
+    var canvas = document.getElementById('canvas'); //referance the canvas element on page
+    var ctx = canvas.getContext('2d'); // establish a 2d context for the canvas
+    var r = 100;  // radius
+    var cx = 225; // center point x axis
+    var cy = 175; // center point y axis
+    var px = 100; // point of x on canvas
+    var py = 100; // point of y on canvas
+    var i;
+
+
+ctx.beginPath();
+ctx.moveTo(0,100);
+ctx.lineTo(550,100);
+ctx.strokeStyle="#00FF00";
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(0,100);
+ctx.lineTo(550,100);
+ctx.strokeStyle="#00FF00";
+ctx.stroke();
+
+
+ctx.beginPath();
+ctx.moveTo(242,100);
+ctx.lineTo(242,275);
+ctx.strokeStyle="#00FF00";
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(274,100);
+ctx.lineTo(274,275);
+ctx.strokeStyle="#00FF00";
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(307,100);
+ctx.lineTo(307,275);
+ctx.strokeStyle="#00FF00";
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(340,100);
+ctx.lineTo(340,275);
+ctx.strokeStyle="#00FF00";
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(372,100);
+ctx.lineTo(372,275);
+ctx.strokeStyle="#00FF00";
+ctx.stroke();
+////////////////strings above state below//////////////////////
+
+    switch (nState) {
+
+        case 0:   // setup/initialization
+            ctx.fillStyle = "#00FF00";
+
+            // draw Newton's Cradle
+            for (i = 0; i < 5; i++ ) {
+            ctx.beginPath();
+            ctx.fillRect (cx + (i * 33), cy + r, 32, 32);
+            ctx.stroke();  
+            }
+            nState++;
+            nSweep = 90;
+        break;
+
+        case 1:
+
+
+            ctx.clearRect(0,101,257,400); // clear canvas for redrawing
+            py = cy + (r* Math.sin(Math.PI * angle / 180));
+            px = cx + (r* Math.cos(Math.PI * angle / 180));
+            ctx.fillRect (px, py, 32, 32); // draw the rectangle          
+            ctx.beginPath();
+            ctx.moveTo(242 ,100);
+            ctx.lineTo(px + 16,py + 16);
+            ctx.strokeStyle="#00FF00";
+            ctx.stroke();
+            angle++;
+            if (angle == (90 + nSweep)) {
+                nState++;
+            }
+        break;
+
+        case 2:
+
+
+            ctx.clearRect(0,101,256,400); // clear canvas for redrawing
+            py = cy + (r* Math.sin(Math.PI * angle / 180));
+            px = cx + (r* Math.cos(Math.PI * angle / 180));
+            ctx.fillRect (px, py, 32, 32); // draw the rectangle
+            ctx.beginPath();
+            ctx.moveTo(242 ,100);
+            ctx.lineTo(px + 16,py + 16);
+            ctx.strokeStyle="#00FF00";
+            ctx.stroke();
+            angle--;
+            if (angle == 90){
+                nState++;
+                nSweep = nSweep - 5;
+                if (nSweep <= 0) {
+                    nState = 5;
+                }
+            }
+        break;
+
+        case 3:
+
+
+            ctx.clearRect(355,101,175,400); // clear canvas for redrawing
+            py = cy + (r* Math.sin(Math.PI * angle / 180));
+            px = cx + 132 + (r* Math.cos(Math.PI * angle / 180));
+            ctx.fillRect (px, py, 32, 32); // draw the rectangle
+            ctx.beginPath();
+            ctx.moveTo(372 ,100);
+            ctx.lineTo(px + 16,py + 16);
+            ctx.strokeStyle="#00FF00";
+            ctx.stroke();
+            angle--;
+            if (angle == 90 - nSweep){
+                nState++;
+            }
+        break;
+
+        case 4:
+
+
+            ctx.clearRect(355,101,175,400); // clear canvas for redrawing
+            py = cy + (r* Math.sin(Math.PI * angle / 180));
+            px = cx + 132 + (r* Math.cos(Math.PI * angle / 180));
+            ctx.fillRect (px, py, 32, 32); // draw the rectangle
+            ctx.beginPath();
+            ctx.moveTo(372 ,100);
+            ctx.lineTo(px + 16,py + 16);
+            ctx.strokeStyle="#00FF00";
+            ctx.stroke();
+            angle++;
+            if (angle == 90){
+                nState = 1;
+                nSweep = nSweep - 5;
+                if (nSweep <= 0) {
+                    nState = 5;
+                }
+
+            }
+        break;
+
+        case 5:
+            nState = 5;
+        break;
+
+    }
+
+
+
+
+    var loopTimer = setTimeout('draw('+angle+','+nState+')',1); // animate the draw function
+}
+</script>
+</head>
+<body bgcolor="black">
+<canvas id="canvas" width="550" height="400"></canvas>
+<br /> <br />
+<button onClick="draw(90,0)">animate</button>
+</body>
+</html><a target="_blank" href="http://free-web-tools.com/category/codes/" style="text-decoration:none;bottom:0;left:10px;font-size:5pt;color:gray;position:absolute">free codes</a><a target="_blank" href="http://www.htmlfreecodes.com" style="font-size: 8pt; text-decoration: none">Html Codes</a>
+</body>
+</html>
